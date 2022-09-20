@@ -1,6 +1,6 @@
 import { Box, BoxProps, useColorModeValue, Flex, CloseButton, Text } from "@chakra-ui/react";
 import { IconType } from "react-icons";
-import { FiCompass, FiHome, FiSettings, FiStar, FiTrendingUp } from "react-icons/fi";
+import { FiCompass, FiHome, FiSearch, FiSettings, FiStar, FiTrendingUp } from "react-icons/fi";
 import NavItem from "./NavItem";
 
 interface SidebarProps extends BoxProps {
@@ -13,10 +13,8 @@ interface LinkItemProps {
 }
 const LinkItems: Array<LinkItemProps> = [
     { name: 'Home', icon: FiHome, link: '/' },
-    { name: 'Trending', icon: FiTrendingUp, link: '/trending' },
-    { name: 'Explore', icon: FiCompass, link: '/explore' },
-    { name: 'Favourites', icon: FiStar, link: '/favourites' },
-    { name: 'Settings', icon: FiSettings, link: '/settings' },
+    { name: 'Search', icon: FiSearch, link: '/search' },
+    { name: 'Favorites', icon: FiStar, link: '/favorites' },
 ];
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
@@ -32,7 +30,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
             {...rest}>
             <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
                 <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-                    Logo
+                    QandQ
                 </Text>
                 <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
             </Flex>

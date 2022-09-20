@@ -39,6 +39,17 @@ function getToken() {
     return null;
 }
 
+function getProfile() {
+    for (let i = 0; i < sessionStorage.length; i++) {
+        if (sessionStorage.key(i)?.startsWith('oidc.user:')) {
+            let store = sessionStorage.getItem(sessionStorage.key(i)!);
+            const parsedStore = JSON.parse(store!) as any;
+            return parsedStore.profile;
+        }
+    }
+    return null;
+}
+
 function isLoggedIn() {
     let tokenExists = false;
     let claimsExists = false;
@@ -59,4 +70,4 @@ function isLoggedIn() {
     return tokenExists && claimsExists && profileExists;
 }
 
-export { getToken, isLoggedIn, userManager, settings }
+export { getToken, isLoggedIn, userManager, settings, getProfile }
